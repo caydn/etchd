@@ -4,9 +4,115 @@
     <meta charset="utf-8">
     <title>Etch Editor</title>
     <!-- fontawesome -->
-    
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="ee.css">
+  </head>
+  <body onload="enableEditMode();">
+
+      <div class="toolbar">
+        <button  onclick="execCommandWithArg('insertImage', prompt('Enter the image URL'));"><i class="fa fa-file-image-o"></i></button>
+        <!-- font-family -->
+        <button>
+          <span class="fa fa-font"></span>
+          <select onchange="execCommandWithArg('fontName', this.value );">
+            <option  value="Ariel">Ariel</option>
+            <option value="Comic Sans">Comic Sans</option>
+            <option value="Courier">Courier</option>
+            <option  value="Helvetica">Helvetica</option>
+            <option  value="Lato">Lato</option>
+            <option  value="Open Sans">Open Sans</option>
+            <option  value="Tahoma">Tahoma</option>
+            <option  value="Times New Roman">Times New Roman</option>
+          </select>
+        </button>
+
+        <!-- font size -->
+        <select onchange="execCommandWithArg('fontSize', this.value );">
+          <option  value="font-size">Font Size</option>
+          <option  value="1">1</option>
+          <option  value="2">2</option>
+          <option  value="3">3</option>
+          <option  value="4">4</option>
+          <option  value="5">5</option>
+          <option  value="6">6</option>
+          <option  value="7">7</option>
+        </select>
+
+        <!-- font wieght -->
+        <select onchange="execCommandWithArg('fontWeight', this.value );">
+          <option  value="font-weight">Font Weight</option>
+          <option  value="100">100</option>
+          <option  value="200">200</option>
+          <option  value="300">300</option>
+          <option  value="400">400</option>
+          <option  value="500">300</option>
+          <option  value="600">600</option>
+          <option  value="700">700</option>
+        </select>
+        <!-- font color and font bg color -->
+        <small>Font Color: <input type="color" onchange="execCommandWithArg('foreColor', this.value );" ></small>
+        <small>Background: <input type="color" onchange="execCommandWithArg('hiliteColor', this.value );"></small>
+
+        <button  onclick="execCmd('bold');"><i class="fa fa-bold"></i></button>
+        <button  onclick="execCmd('italic');"><i class="fa fa-italic"></i></button>
+        <button  onclick="execCmd('underline');"><i class="fa fa-underline"></i></button>
+        <button  onclick="execCmd('strikethrough');"><i class="fa fa-strikethrough"></i></button>
+        <!-- header tag -->
+        <select onchange="execCommandWithArg('formatBlock', this.value );">
+          <option  value="h1">H1</option>
+          <option  value="h2">H2</option>
+          <option  value="h3">H3</option>
+          <option  value="h4">H4</option>
+          <option  value="h5">H5</option>
+          <option  value="h6">H6</option>
+        </select>
+        <button  onclick="execCmd('insertparagraph');"><i class="fa fa-paragraph"></i></button>
+
+
+        <button  onclick="execCmd('indent');"><i class="fa fa-indent"></i></button>
+        <button  onclick="execCmd('outdent');"><i class="fa fa-dedent"></i></button>
+
+        <button  onclick="execCmd('justifyLeft');"><i class="fa fa-align-left"></i></button>
+        <button  onclick="execCmd('justifyFull');"><i class="fa fa-align-justify"></i></button>
+        <button  onclick="execCmd('justifyRight');"><i class="fa fa-align-right"></i></button>
+        <button  onclick="execCmd('justifycenter');"><i class="fa fa-align-center"></i></button>
+
+        <br>
+
+        <button  onclick="execCmd('insertUnorderedList');"><i class="fa fa-list-ol"></i></button>
+        <button  onclick="execCmd('insertOrderedList');"><i class="fa fa-list-ul"></i></button>
+
+        <button  onclick="execCmd('superscript');"><i class="fa fa-superscript"></i></button>
+        <button  onclick="execCmd('subscript');"><i class="fa fa-subscript"></i></button>
+
+        <button  onclick="execCommandWithArg('createLink', prompt('Enter a URL', 'https://'));"><i class="fa fa-link"></i></button>
+        <button  onclick="execCmd('unlink');"><i class="fa fa-unlink"></i></button>
+
+        <button  onclick="execCmd('widthtext');"><i class="fa fa-text-width"></i></button>
+        <button  onclick="execCmd('heighttext');"><i class="fa fa-text-height"></i></button>
+
+        <button  onclick="execCmd('cut');"><i class="fa fa-cut"></i></button>
+        <button  onclick="execCmd('copy');"><i class="fa fa-copy"></i></button>
+        <button  onclick="execCmd('paste');"><i class="fa fa-paste"></i></button>
+
+        <button  onclick="execCmd('table');"><i class="fa fa-table"></i></button>
+
+        <button  onclick="execCmd('insertHorizontalRule');">HR</i></button>
+        <button  onclick="toggleSource();"><i class="fa fa-code"></i></button>
+        <button  onclick="toggleEdit();">Toggle edit</i></button>
+
+        <button  onclick="execCmd('undo');"><i class="fa fa-undo"></i></button>
+        <button  onclick="execCmd('redo');"><i class="fa fa-repeat"></i></button>
+
+      </div>
+
+      <iframe name="richTextField" style="width: 1000px; height: 500px;"></iframe>
+
+
+    <!-- javascript -->
+
+    <script src="js/ee.js" charset="utf-8"></script>
   </body>
 </html>

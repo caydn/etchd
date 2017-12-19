@@ -1,0 +1,12 @@
+.editor{
+  margin-left: 60px;
+  padding-left: 80px;
+}
+.toolbar{
+  border: 1px solid #000;
+}
+
+select{
+  background: transparent;
+  border: none;
+}
