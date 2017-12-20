@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="ee.css">
   </head>
   <body onload="enableEditMode();">
-
+    <div id="textEditor" class="textEditor">
       <div class="toolbar">
-        <button  onclick="execCommandWithArg('insertImage', prompt('Enter the image URL'));"><i class="fa fa-file-image-o"></i></button>
         <!-- font-family -->
         <button>
           <span class="fa fa-font"></span>
@@ -51,14 +50,11 @@
           <option  value="600">600</option>
           <option  value="700">700</option>
         </select>
-        <!-- font color and font bg color -->
-        <small>Font Color: <input type="color" onchange="execCommandWithArg('foreColor', this.value );" ></small>
-        <small>Background: <input type="color" onchange="execCommandWithArg('hiliteColor', this.value );"></small>
 
         <button  onclick="execCmd('bold');"><i class="fa fa-bold"></i></button>
         <button  onclick="execCmd('italic');"><i class="fa fa-italic"></i></button>
         <button  onclick="execCmd('underline');"><i class="fa fa-underline"></i></button>
-        <button  onclick="execCmd('strikethrough');"><i class="fa fa-strikethrough"></i></button>
+        <button  onclick="execCmd('strikeThrough');"><i class="fa fa-strikethrough"></i></button>
         <!-- header tag -->
         <select onchange="execCommandWithArg('formatBlock', this.value );">
           <option  value="h1">H1</option>
@@ -68,8 +64,13 @@
           <option  value="h5">H5</option>
           <option  value="h6">H6</option>
         </select>
-        <button  onclick="execCmd('insertparagraph');"><i class="fa fa-paragraph"></i></button>
+        <!-- font color and font bg color -->
+        <small>Font Color: <input type="color" onchange="execCommandWithArg('foreColor', this.value );" ></small>
+        <small>Background: <input type="color" onchange="execCommandWithArg('hiliteColor', this.value );"></small>
 
+        <br>
+
+        <button  onclick="execCmd('insertparagraph');"><i class="fa fa-paragraph"></i></button>
 
         <button  onclick="execCmd('indent');"><i class="fa fa-indent"></i></button>
         <button  onclick="execCmd('outdent');"><i class="fa fa-dedent"></i></button>
@@ -78,8 +79,6 @@
         <button  onclick="execCmd('justifyFull');"><i class="fa fa-align-justify"></i></button>
         <button  onclick="execCmd('justifyRight');"><i class="fa fa-align-right"></i></button>
         <button  onclick="execCmd('justifycenter');"><i class="fa fa-align-center"></i></button>
-
-        <br>
 
         <button  onclick="execCmd('insertUnorderedList');"><i class="fa fa-list-ol"></i></button>
         <button  onclick="execCmd('insertOrderedList');"><i class="fa fa-list-ul"></i></button>
@@ -100,6 +99,7 @@
         <button  onclick="execCmd('table');"><i class="fa fa-table"></i></button>
 
         <button  onclick="execCmd('insertHorizontalRule');">HR</i></button>
+        <button  onclick="execCommandWithArg('insertImage', prompt('Enter the image URL'));"><i class="fa fa-file-image-o"></i></button>
         <button  onclick="toggleSource();"><i class="fa fa-code"></i></button>
         <button  onclick="toggleEdit();">Toggle edit</i></button>
 
@@ -109,8 +109,7 @@
       </div>
 
       <iframe name="richTextField" style="width: 1000px; height: 500px;"></iframe>
-
-
+    </div>
     <!-- javascript -->
 
     <script src="js/ee.js" charset="utf-8"></script>
